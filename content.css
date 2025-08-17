@@ -1,0 +1,91 @@
+/* Content bar styling */
+.content-bar {
+    position: fixed;
+    top: 50%;
+    right: 20px; /* Align on the right side */
+    transform: translateY(-50%);
+    background-color: transparent; /* No background for minimalism */
+    z-index: 1000; /* Keep it above other elements */
+}
+
+.content-bar ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    gap: 30px; /* Space between items */
+}
+
+.content-bar ul li {
+    position: relative; /* For line positioning */
+    opacity: 0; /* Start fully transparent */
+    transform: translateX(50px); /* Start offset to the right */
+    animation: swipeIn 0.5s ease forwards; /* Apply animation */
+}
+
+/* Animate each list item with a delay */
+.content-bar ul li:nth-child(1) {
+    animation-delay: 0.1s; /* First item swipes in first */
+}
+
+.content-bar ul li:nth-child(2) {
+    animation-delay: 0.3s; /* Second item swipes in slightly later */
+}
+
+.content-bar ul li:nth-child(3) {
+    animation-delay: 0.5s; /* Third item swipes in last */
+}
+
+/* Keyframe animation for swipe-in effect */
+@keyframes swipeIn {
+    0% {
+        opacity: 0; /* Start invisible */
+        transform: translateX(50px); /* Offset to the right */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateX(0); /* Back to original position */
+    }
+}
+
+/* Link styling */
+.content-link {
+    font-family: 'Roboto Mono', monospace; /* Minimalistic font */
+    font-size: 1rem; /* Adjust size for simplicity */
+    text-decoration: none; /* Remove underline */
+    color: rgba(255, 255, 255, 0.5); /* Subdued white color */
+    text-transform: uppercase; /* Make the text uppercase */
+    letter-spacing: 1px; /* Add spacing for a clean look */
+    display: inline-block; /* Inline element with proper spacing */
+    position: relative; /* For the animated line */
+    transition: color 0.3s ease, transform 0.3s ease; /* Add transform for smooth movement */
+}
+
+/* Line to the left of each link */
+.content-link::before {
+    content: ''; /* Empty content for the line */
+    display: block;
+    width: 30px; /* Initial length of the line */
+    height: 1px; /* Thickness of the line */
+    background-color: rgba(255, 255, 255, 0.5); /* Subdued color */
+    position: absolute; /* Position relative to the link */
+    left: -75px; /* Place the line to the left of the text */
+    top: 50%; /* Center the line vertically relative to the text */
+    transform: translateY(-50%); /* Proper vertical centering */
+    transition: width 0.3s ease, background-color 0.3s ease, transform 0.3s ease; /* Smooth line animation */
+}
+
+/* Hover and Active States */
+.content-link:hover::before,
+.content-link.active::before {
+    width: 70px; /* Expand the line length */
+    background-color: #FFFFFF; /* Full white color on hover or active */
+    transform: translateY(-50%) translateX(-10px); /* Move the line further left */
+}
+
+.content-link:hover,
+.content-link.active {
+    color: #FFFFFF; /* Full white for active or hovered link text */
+    transform: translateX(10px); /* Move the text slightly to the right */
+}

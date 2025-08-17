@@ -1,0 +1,204 @@
+/* About Me section */
+#about {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column; /* Stack the header and content vertically */
+    align-items: center; /* Align items to the start (top-left for the header) */
+    justify-content: space-between;
+    padding: 20px; /* Add padding around the edges */
+    background-color: #40534C; /* Dark grayish-green background */
+    color: #D6BD98; /* Beige text color */
+    box-sizing: border-box;
+}
+
+/* About Me header */
+.about-header {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column; /* Stack the text and line */
+    height: 20%; /* Adjust header height as needed */
+    color: #D6BD98; /* Beige text color */
+    text-align: center; /* Center-align the header text */
+}
+
+/* Header Text */
+.about-header h1 {
+    font-size: 2.5rem; /* Adjust font size */
+    font-weight: 700;
+    font-family: 'Merriweather', serif; /* Aesthetic font */
+    margin: 0; /* Remove extra margin */
+    position: relative; /* Position needed for pseudo-elements */
+}
+
+/* Line Under Header */
+.about-header h1::after {
+    content: ''; /* Empty content for the line */
+    display: block; /* Makes the line appear as a block */
+    width: 100px; /* Length of the underline */
+    height: 3px; /* Thickness of the line */
+    background-color: white; /* Line color */
+    margin: 10px auto 0; /* Center the line and add spacing */
+    border-radius: 2px; /* Optional: Rounded edges for the line */
+}
+
+/* Style for the typewriter effect */
+#typewriter {
+    font-family: 'Merriweather', serif; /* Aesthetic font */
+    font-weight: bold; /* Bold text */
+    color: #D6BD98; /* Beige color */
+    text-align: center; /* Center-align text */
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflow for the typewriter effect */
+    border-right: 2px solid #D6BD98; /* Simulate a typing cursor */
+    font-size: 2.5rem; /* Larger font for emphasis */
+}
+
+/* About Me content container */
+.about-content {
+    display: flex;
+    flex-direction: row; /* Align items side by side */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    width: 100%;
+    height: 100%; /* Fill the remaining height */
+    gap: 150px; /* Add space between image and text */
+}
+
+/* Profile picture styling */
+.profile-picture {
+    width: 300px; /* Set width of the image */
+    height: 500px; /* Same height for a square shape */
+    object-fit: cover; /* Ensures the image scales properly */
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.2); /* Optional semi-transparent background */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Adds the shadow effect */
+    padding: 10px; /* Space between the image and the background */
+}
+
+.profile-picture:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Slightly stronger shadow on hover */
+    transition: box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* About Me paragraph styling */
+.about-title {
+    font-family: 'Merriweather', serif; /* Elegant serif font for the title */
+    font-size: 2rem; /* Adjust size as needed */
+    font-weight: bold; /* Bold for emphasis */
+    margin-bottom: 15px; /* Add spacing below the title */
+    color: #D6BD98; /* Beige text color */
+}
+
+.about-text {
+    max-width: 750px; /* Limit the width of the text */
+    font-family: 'Roboto Mono', monospace; /* Clean font for the paragraph */
+    font-size: 1.2rem; /* Adjust font size */
+    line-height: 1.6; /* Improve readability */
+    color: #ffffff; /* Light color for contrast against dark background */
+}
+
+/* Resume Link */
+.resume-link {
+    display: inline-block;
+    margin-top: 20px; /* Space above the link */
+    font-family: 'Roboto Mono', monospace; /* Monospace font for the link */
+    font-size: 1rem; /* Adjust font size */
+    text-transform: uppercase; /* Capitalize text */
+    text-decoration: none; /* Remove underline */
+    color: #D6BD98; /* Beige text color */
+    border: 2px solid #D6BD98; /* Border matching text color */
+    padding: 10px 20px; /* Add padding for a button-like effect */
+    border-radius: 5px; /* Slightly rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.resume-link:hover {
+    background-color: #D6BD98; /* Invert colors on hover */
+    color: #1A3636; /* Dark text on light background */
+}
+
+/* Adjust layout for mobile screens */
+@media (max-width: 768px) {
+    #about {
+        flex-direction: column; /* Stack everything vertically */
+    }
+
+    .about-content {
+        flex-direction: column; /* Stack content vertically */
+        text-align: center; /* Center align text for smaller screens */
+        gap: 20px; /* Reduce spacing between items */
+    }
+
+    .profile-picture {
+        margin: 0 auto; /* Center the image on mobile */
+    }
+
+    .about-content p {
+        max-width: 90%; /* Reduce paragraph width for smaller screens */
+        margin: 0 auto;
+    }
+}
+
+/* Skills bar styling */
+.skills-bar {
+    width: 100%; /* Full width of the section */
+    background-color: #40534C; /* Dark background to match theme */
+    color: #D6BD98; /* Beige text color */
+    overflow: hidden; /* Hide overflow for smooth scrolling */
+    position: relative;
+    height: 40px; /* Set height of the bar */
+    display: flex;
+    align-items: center; /* Center text vertically */
+    box-sizing: border-box; /* Include padding in width calculations */
+    padding: 0;
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+/* Marquee effect */
+.skills-marquee {
+    display: flex;
+    animation: scroll 20s linear infinite; /* Smooth scrolling animation */
+    gap: 40px; /* Space between skill boxes */
+    white-space: nowrap; /* Prevent line wrapping */
+    width: max-content; /* Ensure content takes only the required width */
+}
+
+/* Skill box styling */
+.skills-marquee span {
+    font-size: 1rem; /* Adjust font size */
+    font-weight: bold; /* Make text bold */
+    font-family: 'Roboto Mono', monospace;
+    text-transform: uppercase; /* Capitalize skills */
+    background-color: #D6BD98; /* Light beige background for skill boxes */
+    color: #1A3636; /* Dark text for contrast */
+    padding: 10px; /* Padding inside the boxes */
+    border-radius: 15px; /* Rounded corners for the boxes */
+    display: inline-flex; /* Ensures content is centered */
+    justify-content: center; /* Horizontally center the text */
+    align-items: center; /* Vertically center the text */
+    white-space: nowrap; /* Prevent text wrapping */
+    width: 120px; /* Fixed width for all boxes */
+    height: 20px; /* Fixed height for all boxes */
+    text-align: center; /* Center-align text */
+}
+
+/* Hover effect for skill boxes */
+.skills-marquee span:hover {
+    background-color: #1A3636; /* Invert colors on hover */
+    color: #D6BD98; /* Text color on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Keyframe animation for scrolling */
+@keyframes scroll {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
